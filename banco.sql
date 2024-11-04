@@ -105,12 +105,11 @@ DROP TABLE IF EXISTS `itens_pedido`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `itens_pedido` (
-  `id_item` int(11) NOT NULL AUTO_INCREMENT,
   `id_pedido` int(11) NOT NULL,
   `id_produto` int(11) NOT NULL,
   `quantidade` int(11) NOT NULL,
   `preco` float NOT NULL,
-  PRIMARY KEY (`id_item`),
+  PRIMARY KEY (`id_produto`,`id_pedido`),
   KEY `fk_pedido` (`id_pedido`),
   KEY `fk_produto` (`id_produto`),
   CONSTRAINT `fk_pedido` FOREIGN KEY (`id_pedido`) REFERENCES `pedido` (`id_pedido`),
@@ -286,4 +285,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-11-01 14:49:26
+-- Dump completed on 2024-11-04 13:59:24
